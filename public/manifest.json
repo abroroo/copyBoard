@@ -5,15 +5,15 @@
   "description": "Copy your frequently used phrases to clipboard",
   "action": {
     "default_icon": {
-      "16": "logo192.png",
-      "128": "logo192.png"
+      "16": "logo.png",
+      "128": "logo.png"
     },
     "default_popup": "index.html"
   },
   "permissions": ["activeTab", "tabs", "storage", "scripting"],
   "web_accessible_resources": [
     {
-      "resources": ["index.html", "logo192.png", "content_script.js"],
+      "resources": ["index.html", "logo.png", "content_script.js"],
       "matches": ["<all_urls>"]
     }
   ],
