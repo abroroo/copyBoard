@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Logo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: #f0f0f0;
+        }
+        .iframe-container {
+            width: 100px;
+            height: 100px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon" id="icon">
+        <!-- Your icon logo content here -->
+        <img src="./logo.png" alt="Icon Logo">
+    </div>
+    <div class="iframe-container" id="iframeContainer">
+        <iframe id="appFrame" title="React App"></iframe>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const icon = document.getElementById("icon");
+            const iframeContainer = document.getElementById("iframeContainer");
+            const appFrame = document.getElementById("appFrame");
+
+            // Set initial iframe source to your icon logo
+            appFrame.src = "./index.html";
+
+            // Click event handler for loading React app content
+            icon.addEventListener("click", function() {
+                // Change iframe source to your React app's build index.html
+                appFrame.src = "./index.html";
+            });
+        });
+    </script>
+</body>
+</html>

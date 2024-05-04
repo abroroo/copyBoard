@@ -8,22 +8,25 @@
       "16": "logo.png",
       "128": "logo.png"
     },
-    "default_popup": "index.html"
+    "default_popup": ""
   },
-  "permissions": ["activeTab", "tabs", "storage", "scripting"],
+  "permissions": ["activeTab", "tabs", "storage", "scripting", "declarativeNetRequest" ],
   "web_accessible_resources": [
     {
-      "resources": ["index.html", "logo.png", "content_script.js"],
+      "resources": ["index.html", "iframe.html", "logo.png", "content_script.js"],
       "matches": ["<all_urls>"]
     }
   ],
   "background": {
-    "service_worker": "content.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content_script.js"]
     }
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }

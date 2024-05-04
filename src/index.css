@@ -41,9 +41,10 @@ body {
 }
 
 .scaled {
-  transition: transform 0.1s ease; /* Add transition for smooth scaling */
+  transition: transform 0.1s ease;
   transform: scale(1.05);
 }
+
 .phrase-text:hover {
   color: #0c359e;
   background: rgba(55, 104, 229, 0.3);
@@ -73,14 +74,9 @@ body {
   padding: 10px 16px;
   border: 1px solid #ccc;
   margin-left: 10px;
+  flex: 1; /* Take 10% of the width */
 }
-.edit-button:hover,
-.save-button:hover,
-.cancel-button:hover,
-.delete-button:hover {
-  color: #000;
-  background: rgba(238, 52, 52, 0.3);
-}
+
 .add-button:hover {
   color: #000;
   background: rgba(37, 208, 57, 0.5);
@@ -89,13 +85,12 @@ body {
 
 .add-phrase-container {
   display: grid;
-  grid-template-columns: 1fr auto; /* Flexible input area, fixed button size */
+  grid-template-columns: 9fr 1fr; /* Flexible input area, fixed button size */
   align-items: center;
   margin-top: 20px;
 }
 
 .new-phrase-input {
-  flex-grow: 1;
   padding: 6px 5px;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -145,6 +140,7 @@ body {
   margin: 0 5px;
   padding: 10px;
 }
+
 
 /* .phrase-list-container {
   position: fixed;

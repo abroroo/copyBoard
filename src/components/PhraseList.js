@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import '../index.css';
 
 
@@ -75,14 +75,38 @@ const PhraseList = () => {
     const toggleInputVisibility = () => {
         setIsInputVisible(!isInputVisible);
     };
+
+    const [draggedIndex, setDraggedIndex] = useState(null);
+
+    const handleDragStart = (index) => {
+        setDraggedIndex(index);
+    };
+
+    const handleDragOver = (index) => {
+        const draggedItem = phrases[draggedIndex];
+        const updatedPhrases = phrases.filter((_, i) => i !== draggedIndex);
+        updatedPhrases.splice(index, 0, draggedItem);
+        setPhrases(updatedPhrases);
+        setDraggedIndex(index);
+    };
+
+    const handleDragEnd = () => {
+        setDraggedIndex(null);
+    };
+
     return (
         <div>
             <div className={`phrase-list-container ${showContainer ? 'show' : ''}`}>
 
                 <ul className="phrase-list">
                     {phrases.map((phrase, index) => (
-                        <div key={index} className={`list-container ${phraseScales && index === selectedPhraseIndex ? 'scaled' : ''}`}>
-                            <li className="phrase-item">
+                        <div key={index} calssName="list-container">
+                            <li key={index}
+                            draggable
+                            onDragStart={() => handleDragStart(index)}
+                            onDragOver={() => handleDragOver(index)}
+                            onDragEnd={handleDragEnd}
+                            className={`phrase-item  ${phraseScales && index === selectedPhraseIndex ? 'scaled' : ''}`}>
                                 <span className="phrase-text" onClick={() => { handleCopyToClipboard(phrase); setSelectedPhraseIndex(index); }}>
                                     {phrase}
                                 </span>
